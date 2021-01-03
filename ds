@@ -1,0 +1,44 @@
+class BinarySearch {
+    int binarySearch(int sample_arr[], int left, int right, int key)
+    {
+
+        //Base Case: binary search executes as long right-most index is greater
+        // than left-most index.
+        if (right >= left) {
+            int mid = left + (right - left) / 2;
+
+            // if element is present at the middle return index.
+            if (sample_arr[mid] == key)
+                return mid;
+
+            // If element is smaller than mid, then 
+            // it can only be present in left subarray 
+            if (sample_arr[mid] > key)
+                return binarySearch(sample_arr, left, mid - 1, key);
+
+            // Else the element can only be present 
+            // in right subarray
+            return binarySearch(sample_arr, mid + 1, right, key); 
+
+        }
+
+    return -1;
+    
+    }
+
+    public static void main(String args[]) 
+    {  
+
+        BinarySearch b_search = new BinarySearch();
+
+        int sample_arr[] = {2, 5, 8, 12, 16, 23, 38, 56, 72, 91};
+        int arr_size =  sample_arr.length;
+        int key = 23;
+        
+        int result = b_search.binarySearch(sample_arr, 0, arr_size - 1, key); 
+        if (result == -1) 
+            System.out.println("Element not present"); 
+        else
+            System.out.println("Element is present at index " + result); 
+    } 
+}
