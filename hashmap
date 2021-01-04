@@ -1,0 +1,76 @@
+
+
+5 – Create hashmap and add keys
+// Create the hashmap
+var animal = {};
+// Add keys to the hashmap
+animal[‘cat’] = { sound: ‘meow’, age:8 };
+animal[‘dog’] = { sound: ‘bark’, age:10 };
+animal[‘bird’] = { sound: ‘tweet’, age:2 };
+animal[‘cow’] = { sound: ‘moo’, age:5 };
+4 – Print all objects in the hashmap
+for (var x in animal)
+{
+    console.log(‘Key:\n—- ‘ + x + ‘\n’);
+    console.log(‘Values: ‘);
+    var value = animal[x];
+    for (var y in value)
+    {
+        console.log(‘—- ‘ + y + ‘:’ + value[y]);
+    }
+    console.log(‘\n’);
+}
+Here’s a sample of the output:
+> Key:
+> —- cat
+> Values:
+> —- sound:meow
+> —- age:8
+>
+> Key:
+> —- dog
+> Values:
+> —- sound:bark
+> —- age:10
+>
+> Key:
+> —- bird
+> Values:
+> —- sound:tweet
+> —- age:2
+>
+> Key:
+> —- cow
+> Values:
+> sound:moo
+> —- age:5
+3 – Check for the existence of a key, and modify the key
+Without a hashmap, you would have to do this:
+for (i = 0; i < numObjects; i++)
+{
+    if (animal[i].type == ‘cat’)
+    {
+        animal[i].sound = ‘hiss’;
+    }
+}
+But with a hashmap, you can just do this:
+// check for the existence of ‘cat’ key
+if (‘cat’ in animal)
+{
+     // modify cat key here
+    animal[cat].sound = ‘hiss’;
+}
+// Sweet, huh?
+2 – Delete a key
+// check to see if key already exists
+if (‘cat’ in animal)
+{
+     // then, delete it
+    delete animal[‘cat’];
+}
+1 – Count the number of keys
+With JS hashmaps, you can’t just do this — animal.length — to get the number of keys, or objects in your hashmap. Instead, you’ll need a few more lines of code:
+var count = 0;
+for (x in animal)
+{ count++; }
+console.log(‘The number of animals are: ‘ + count + ‘\n’);
